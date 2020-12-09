@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+
+development:
+  <<: *default
+  database: seat_management_dev
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  database: seat_management_test
+  username: postgres
+  password: postgres
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
